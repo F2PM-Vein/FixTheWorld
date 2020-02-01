@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2289bffe25eb81045849b1ae9e133ae9, type: 3}
-  m_Name: Water
+  m_Name: Item_Water
   m_EditorClassIdentifier: 
   Name: Water
   itemID: 1

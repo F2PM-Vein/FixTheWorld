@@ -11,13 +11,21 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        object[] tempEpidemicList = Resources.LoadAll("Epidemic", typeof(Epidemic.EpidemicSO));
-        Epidemic.EpidemicSO ei = (Epidemic.EpidemicSO)tempEpidemicList[0];
-        epidemicsList.Add(ei);
+        object[] tempEpidemicList = Resources.LoadAll("Epidemics", typeof(Epidemic.EpidemicSO));
+
+        foreach (Epidemic.EpidemicSO Epidemic in tempEpidemicList)
+        {
+            Epidemic.EpidemicSO ei = (Epidemic.EpidemicSO)Epidemic;
+            epidemicsList.Add(ei);
+        }
 
         object[] tempItemsList = Resources.LoadAll("Items", typeof(Item.ItemSO));
-        Item.ItemSO il = (Item.ItemSO)tempEpidemicList[0];
-        itemsList.Add(il);
+
+        foreach (Item.ItemSO Item in tempItemsList)
+        {
+            Item.ItemSO il = (Item.ItemSO)Item;
+            itemsList.Add(il);
+        }
     }
 
     // Update is called once per frame
