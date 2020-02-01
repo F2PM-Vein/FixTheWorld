@@ -471,6 +471,7 @@ GameObject:
   - component: {fileID: 111818655}
   - component: {fileID: 111818654}
   - component: {fileID: 111818653}
+  - component: {fileID: 111818656}
   m_Layer: 5
   m_Name: BTN_EndDay
   m_TagString: Untagged
@@ -541,19 +542,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2066191607}
+      - m_Target: {fileID: 111818656}
         m_MethodName: DayEnded
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -603,6 +593,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111818651}
   m_CullTransparentMesh: 0
+--- !u!114 &111818656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111818651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e158624ef0331d46af60db97eeda353, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  days: 1
+  txtDays: {fileID: 0}
 --- !u!1 &111876048
 GameObject:
   m_ObjectHideFlags: 0
@@ -6340,6 +6344,9 @@ MonoBehaviour:
   txtDays: {fileID: 497991921}
   itemsList: []
   epidemicsList: []
+  citiesList: []
+  prefab: {fileID: 6098998205026912689, guid: 84f73b2cbd048b246834a73a477fe8fc, type: 3}
+  epidemicStarted: 0
 --- !u!4 &2066191608
 Transform:
   m_ObjectHideFlags: 0

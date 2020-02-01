@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/waterEvent
   guid: bcacfeef639b69419b122bf779c25e5f
   Banks:
-  - {fileID: -2609352869767042889}
+  - {fileID: -6817333919967290582}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -46,6 +46,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 3375
+--- !u!114 &-6817333919967290582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound/FMOD_FixTheWorld/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637161718638513587
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-5144244718203223012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +141,7 @@ MonoBehaviour:
   Path: event:/medicineEvent
   guid: 10ea1cca49e42c44b6775e39500e5983
   Banks:
-  - {fileID: -2609352869767042889}
+  - {fileID: -6817333919967290582}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -164,7 +182,7 @@ MonoBehaviour:
   Path: event:/nextDayEvent
   guid: 4c5b8484d08c4644b0eabcbfce749b12
   Banks:
-  - {fileID: -2609352869767042889}
+  - {fileID: -6817333919967290582}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -204,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Sound/FMOD_FixTheWorld/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637161586979297582
+  lastModified: 637161718638563142
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -225,7 +243,7 @@ MonoBehaviour:
   Path: event:/coughEvent
   guid: 9eb46c2481de1a479b1921bc25cc2407
   Banks:
-  - {fileID: -2609352869767042889}
+  - {fileID: -6817333919967290582}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -247,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -1050917143197542114}
-  - {fileID: -2609352869767042889}
+  - {fileID: -6817333919967290582}
   EditorEvents:
   - {fileID: -3756466495304179521}
   - {fileID: -3038888781062274559}
@@ -258,10 +276,10 @@ MonoBehaviour:
   - {fileID: 9201793762437345946}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -2609352869767042889}
+  - {fileID: -6817333919967290582}
   StringsBanks:
   - {fileID: -1050917143197542114}
-  stringsBankWriteTime: 637161586979297582
+  stringsBankWriteTime: 637161718638563142
   cacheVersion: 3
 --- !u!114 &547199668340861875
 MonoBehaviour:
@@ -296,7 +314,7 @@ MonoBehaviour:
   Path: event:/fireEvent
   guid: d11a416495c9a345b29935d8af7f4b67
   Banks:
-  - {fileID: -2609352869767042889}
+  - {fileID: -6817333919967290582}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -319,7 +337,7 @@ MonoBehaviour:
   Path: event:/musicEvent
   guid: 7bd99aaa0a890340933e40e3135e1809
   Banks:
-  - {fileID: -2609352869767042889}
+  - {fileID: -6817333919967290582}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -342,7 +360,7 @@ MonoBehaviour:
   Path: event:/menuClickEvent
   guid: e373c9e5cc43754e968ece5926c55f8a
   Banks:
-  - {fileID: -2609352869767042889}
+  - {fileID: -6817333919967290582}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1

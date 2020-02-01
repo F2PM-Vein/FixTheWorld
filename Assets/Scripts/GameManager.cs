@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
     public TextMeshPro txtDays;
     public List<Item.ItemSO> itemsList = new List<Item.ItemSO>();
     public List<Epidemic.EpidemicSO> epidemicsList = new List<Epidemic.EpidemicSO>();
-    public static GameManager Instance { get; private set; }
-    public GameObject prefab;
 
+    public static GameManager Instance { get; private set; }
+  
     //Game Manager Instantiater
     private void Awake()
     {
@@ -48,22 +48,14 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //Instantiates epidemics 
-   public void EpidemicSpread()
-    {
-  
-        Instantiate(prefab);
-        var result = Random.Range(1, epidemicsList.Count);
-        prefab.GetComponent<SpriteRenderer>();
-        prefab.name = epidemicsList[result].Name;
-      
-        Debug.Log("Epidemic instantiated");
-
-    }
+   
 
     void GameOver()
     {
-
+        //if (citiesDead >= 2)
+        //{
+            
+        //}
     }
 
     public void DayEnded()

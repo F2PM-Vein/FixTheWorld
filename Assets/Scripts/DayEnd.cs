@@ -11,6 +11,7 @@ public class DayEnd : MonoBehaviour
     {
         days++;
         txtDays.SetText(days.ToString());
+        
     }
 
 
