@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{a4c5d5d4-8051-44fe-99cd-00d8f518d2d2}">
+		<property name="assetPath">
+			<value>cough.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.8593424036281179</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{939da23f-fd3c-403e-9ed4-0f078dc2a204}</destination>
+		</relationship>
+	</object>
+</objects>
