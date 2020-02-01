@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d3bc87fadc002544abfb82fc363cfba, type: 3}
-  m_Name: Epidemic_Fire 1
+  m_Name: Epidemic_Virus
   m_EditorClassIdentifier: 
   Name: Virus
   epidemicID: 2
