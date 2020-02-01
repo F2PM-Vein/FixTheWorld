@@ -7,11 +7,12 @@ public class GameManager : MonoBehaviour
 {
     public int days = 1;
     public TextMeshPro txtDays;
-
     public List<Item.ItemSO> itemsList = new List<Item.ItemSO>();
     public List<Epidemic.EpidemicSO> epidemicsList = new List<Epidemic.EpidemicSO>();
     public static GameManager Instance { get; private set; }
+    public GameObject prefab;
 
+    //Game Manager Instantiater
     private void Awake()
     {
         //objectname.Gamemanager.Instance.objectname.Tostring();
@@ -25,7 +26,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    // Start is called before the first frame update
+
+    //Adds SOs to lists dynamically
     void Start()
     {
         object[] tempEpidemicList = Resources.LoadAll("Epidemics", typeof(Epidemic.EpidemicSO));
@@ -45,10 +47,14 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    //Instantiates epidemics 
    public void EpidemicSpread()
     {
-        Instantiate(epidemicsList[Random.Range(1, epidemicsList.Count)]);
-        Debug.Log("object instantiated");
+        Instantiate(prefab, epidemicsList[Random.Range(1, epidemicsList.Count)]);
+
+        Debug.Log("Epidemic instantiated");
+
     }
 
     void GameOver()
