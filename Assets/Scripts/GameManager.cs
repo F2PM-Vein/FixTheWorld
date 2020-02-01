@@ -51,8 +51,12 @@ public class GameManager : MonoBehaviour
     //Instantiates epidemics 
    public void EpidemicSpread()
     {
-        Instantiate(prefab, epidemicsList[Random.Range(1, epidemicsList.Count)]);
-
+  
+        Instantiate(prefab);
+        var result = Random.Range(1, epidemicsList.Count);
+        prefab.GetComponent<SpriteRenderer>();
+        prefab.name = epidemicsList[result].Name;
+      
         Debug.Log("Epidemic instantiated");
 
     }

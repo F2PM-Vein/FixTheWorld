@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1209783943891408383}
   - component: {fileID: 5137210746375229980}
   m_Layer: 0
-  m_Name: Prefab
+  m_Name: EpidemicPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
