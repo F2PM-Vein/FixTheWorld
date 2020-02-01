@@ -43,6 +43,12 @@ public class GameManager : MonoBehaviour
             Item.ItemSO il = (Item.ItemSO)Item;
             itemsList.Add(il);
         }
+
+    }
+   public void EpidemicSpread()
+    {
+        Instantiate(epidemicsList[Random.Range(1, epidemicsList.Count)]);
+        Debug.Log("object instantiated");
     }
 
     void GameOver()
