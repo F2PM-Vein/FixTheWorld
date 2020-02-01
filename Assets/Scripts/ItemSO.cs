@@ -18,5 +18,7 @@ namespace Item
         public Sprite itemIcon;
         public string itemDescription;
         public Category itemCategory;
+        [FMODUnity.EventRef]
+        public string Clip = null;
     }
 }

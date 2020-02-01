@@ -11,8 +11,10 @@ public class GameManager : MonoBehaviour
     public List<Item.ItemSO> itemsList = new List<Item.ItemSO>();
     public List<Epidemic.EpidemicSO> epidemicsList = new List<Epidemic.EpidemicSO>();
     public static GameManager Instance { get; private set; }
+
     private void Awake()
     {
+        //objectname.Gamemanager.Instance.objectname.Tostring();
         if (Instance == null)
         {
             Instance = this;

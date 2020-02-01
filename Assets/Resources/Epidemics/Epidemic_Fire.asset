@@ -18,3 +18,4 @@ MonoBehaviour:
   Description: Fire
   eradicatedMessage: 'The Fire has been Eradicated '
   epidemicCategory: 0
+  Clip: event:/fireEvent

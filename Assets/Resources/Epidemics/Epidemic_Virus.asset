@@ -18,3 +18,4 @@ MonoBehaviour:
   Description: Virus
   eradicatedMessage: 'The Virus has been Eradicated '
   epidemicCategory: 2
+  Clip: event:/coughEvent

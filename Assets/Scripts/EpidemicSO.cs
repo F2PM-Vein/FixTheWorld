@@ -31,7 +31,8 @@ namespace Epidemic
         public string Description;
         public string eradicatedMessage;
         public Category epidemicCategory;
-
+        [FMODUnity.EventRef]
+        public string Clip = null;
     }
-}
 
+}
