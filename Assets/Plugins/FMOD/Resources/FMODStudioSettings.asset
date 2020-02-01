@@ -15,8 +15,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: Assets\Sound\Save the World.fspro
-  sourceBankPath: Assets\Sound\Build
+  sourceProjectPath: Assets\Sound\FMOD_FixTheWorld\FMOD_FixTheWorld.fspro
+  sourceBankPath: Assets\Sound\FMOD_FixTheWorld\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0

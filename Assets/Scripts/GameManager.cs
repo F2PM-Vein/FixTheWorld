@@ -5,9 +5,24 @@ using UnityEngine.UI;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
+    public int days = 1;
+    public TextMeshPro txtDays;
+
     public List<Item.ItemSO> itemsList = new List<Item.ItemSO>();
     public List<Epidemic.EpidemicSO> epidemicsList = new List<Epidemic.EpidemicSO>();
-
+    public static GameManager Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +43,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void GameOver()
     {
-        
+
+    }
+
+    public void DayEnded()
+    {
+        days++;
+        txtDays.SetText(days.ToString());
     }
 }

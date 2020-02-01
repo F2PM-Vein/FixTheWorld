@@ -542,8 +542,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 111818656}
+      - m_Target: {fileID: 2066191607}
         m_MethodName: DayEnded
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 111818656}
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -602,11 +613,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 111818651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e158624ef0331d46af60db97eeda353, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  days: 1
-  txtDays: {fileID: 497991921}
+  CollisionTag: 
+  Event: event:/nextDayEvent
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &111876048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,6 +1945,7 @@ GameObject:
   - component: {fileID: 394158454}
   - component: {fileID: 394158453}
   - component: {fileID: 394158452}
+  - component: {fileID: 394158455}
   m_Layer: 5
   m_Name: BTN_City
   m_TagString: Untagged
@@ -1997,7 +2018,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 394158453}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 394158455}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &394158453
@@ -2038,6 +2070,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394158450}
   m_CullTransparentMesh: 0
+--- !u!114 &394158455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394158450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/fireEvent
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &436883961
 GameObject:
   m_ObjectHideFlags: 0
@@ -3673,6 +3728,7 @@ GameObject:
   - component: {fileID: 942232184}
   - component: {fileID: 942232183}
   - component: {fileID: 942232182}
+  - component: {fileID: 942232185}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3745,6 +3801,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &942232185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942232181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: -1
 --- !u!1 &969581806
 GameObject:
   m_ObjectHideFlags: 0
@@ -6329,6 +6398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e77ac908acb2342867958025aa2732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  days: 1
+  txtDays: {fileID: 111876050}
   itemsList: []
   epidemicsList: []
 --- !u!4 &2066191608

@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Water
   itemID: 1
   itemIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  itemDescription: Water it's good for you and putting out fires.
+  itemDescription: Water it's good for you and for putting out fires.
   itemCategory: 0
