@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     public AudioMixer mainMixer;
 
-    public static void StartGame()
+    public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -17,7 +17,8 @@ public class MainMenu : MonoBehaviour
     {
         mainMixer.SetFloat("Master", volume);
     }
-    public static void Quit()
+
+    public void Quit()
     {
         Debug.Log("I Quit.");
         Application.Quit();
