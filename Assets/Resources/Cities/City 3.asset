@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141250a8953027a4f93055c728e3c75e, type: 3}
+  m_Name: City 3
+  m_EditorClassIdentifier: 
+  cityNeighbours:
+  - {fileID: 3853203753434294680, guid: 1723593296c8fac4699baec293723651, type: 3}
+  - {fileID: 294334444701445727, guid: e56651e7b5561e34f8bf1dac22635d1e, type: 3}
+  - {fileID: 4661391589550161592, guid: 8531b86c6ed25f2448931da61f0486aa, type: 3}
+  onFire: 0
+  Infected: 0
+  cityID: 0
