@@ -47,10 +47,10 @@ public class DayEnd : MonoBehaviour
                     citiesDead++;
                     txtcitiesDead.SetText(citiesDead.ToString());
 
-                    if (days > 1)
+                    if (citiesDead > 1)
                     {
-                        //gameover();
-                        Debug.Log("gameOver");
+                        Time.timeScale = 0;
+                        Debug.Log("gameOver" + Time.timeScale);
                     }
                     else
                     {
@@ -147,14 +147,16 @@ public class DayEnd : MonoBehaviour
                     cityStatus.infectedStatus = 3;
                     Button cityButton = city.GetComponent<Button>();
                     cityButton.interactable = false;
-
+                    city.GetChild(city.childCount);
+              
                     citiesDead++;
                     txtcitiesDead.SetText(citiesDead.ToString());
 
-                    if (days > 1)
+                    if (citiesDead > 1)
                     {
                         //gameover();
-                        Debug.Log("gameOver");
+                        Debug.Log("gameOver"+Time.timeScale);
+                        Time.timeScale = 0;
                     }
                     else
                     {
@@ -179,7 +181,11 @@ public class DayEnd : MonoBehaviour
                             // Spread infected to this city
                             neighbourStatus.infectedStatus++;
                             GameObject prefab = Instantiate(GameManager.Instance.prefab, neighbourCity);
-                            
+
+                            Vector3 newPos = prefab.transform.position;
+                            newPos.x = 100;
+                            //prefab.transform.position = newPos;
+
                             EpidemicPrefab epidemicPrefab = prefab.GetComponentInChildren<EpidemicPrefab>();
                             epidemicPrefab.epidemicType = EpidemicPrefab.EpidemicType.Virus;
                             GameManager.Instance.prefab.GetComponentInChildren<TextMeshProUGUI>().text = GameManager.Instance.epidemicsList[1].Name;

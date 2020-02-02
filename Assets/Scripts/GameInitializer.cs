@@ -60,11 +60,11 @@ public class GameInitializer: MonoBehaviour
                 cityStatus.infectedStatus++;
                 prefab.GetComponentInChildren<EpidemicPrefab>().epidemicType = EpidemicPrefab.EpidemicType.Virus;
                 prefab.GetComponentInChildren<TextMeshProUGUI>().text = GameManager.Instance.epidemicsList[1].Name;
-                //GameManager.Instance.citySOsList[start].Infected = true;
+                // GameManager.Instance.citySOsList[start].Infected = true;
 
                 Vector3 newPos = prefab.transform.position;
-                newPos.x += 100;
-                prefab.transform.position = newPos;
+                newPos.x = 100;
+                //prefab.transform.position = newPos;
             }
 
             GameManager.Instance.epidemicStarted = true;

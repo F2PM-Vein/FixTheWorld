@@ -4,17 +4,6 @@ using UnityEngine;
 
 public class CitySelector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Clicked()
     {
@@ -26,13 +15,24 @@ public class CitySelector : MonoBehaviour
             case "Water":
                 if (cityStatus.fireStatus>0)
                 {
-                    //GetComponentInChildren<>
+                    cityStatus.fireStatus--;
+                    if (cityStatus.fireStatus < 1)
+                    {
+                        //Destroy(city.GetChild(city.childCount));
+                    }
                 }
                 break;
+
             case "Medicine":
                 if (cityStatus.infectedStatus>0)
                 {
-                    Debug.Log(GameManager.Instance.selected);
+                    cityStatus.infectedStatus--;
+
+                    if (cityStatus.infectedStatus<1)
+                    {
+                        //Destroy(city.GetChild(city.childCount));
+                    }
+                    // Debug.Log(GameManager.Instance.selected);
                 }
                 break;
             default:
@@ -40,11 +40,5 @@ public class CitySelector : MonoBehaviour
                 break;
         }
 
-        
-        
-        if (!cityStatus.isAlive)
-        {
-
-        }
     }
 }
