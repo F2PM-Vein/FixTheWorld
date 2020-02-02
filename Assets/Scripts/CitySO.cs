@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace City
+public class EntitySO : MonoBehaviour
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/City SO", fileName = "City", order = 1)]
-    public class CitySO : ScriptableObject
+    // Start is called before the first frame update
+    void Start()
     {
-        [SerializeField]
-        public List<Transform> cityNeighbours = new List<Transform>();
-        public bool onFire;
-        public bool Infected;
-        public int cityID;
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
-

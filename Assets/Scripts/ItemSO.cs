@@ -20,11 +20,5 @@ namespace Item
         public Category itemCategory;
         [FMODUnity.EventRef]
         public string Clip = null;
-
-        [SerializeField]
-        public enum Category
-        {
-            Fire, Flood, Virus
-        }
     }
 }
