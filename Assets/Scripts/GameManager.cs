@@ -5,13 +5,21 @@ using UnityEngine.UI;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager Instance { get; private set; }
     public int days = 1;
     public TextMeshPro txtDays;
+    public bool epidemicStarted = false;
+    public int epidemicSpreadResult;
+    public int citySpreadResult, numeberOfNeighboursResult, spreadResult;
+    public GameObject prefab;
 
     public List<Item.ItemSO> itemsList = new List<Item.ItemSO>();
     public List<Epidemic.EpidemicSO> epidemicsList = new List<Epidemic.EpidemicSO>();
-    public static GameManager Instance { get; private set; }
+    public List<City.CitySO> CitySOsList = new List<City.CitySO>();
+    public List<Transform> citiesList = new List<Transform>();
 
+    //Game Manager Instantiater
     private void Awake()
     {
         //objectname.Gamemanager.Instance.objectname.Tostring();
@@ -25,7 +33,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    // Start is called before the first frame update
+
+    //Adds SOs to lists dynamically
     void Start()
     {
         object[] tempEpidemicList = Resources.LoadAll("Epidemics", typeof(Epidemic.EpidemicSO));
@@ -44,21 +53,23 @@ public class GameManager : MonoBehaviour
             itemsList.Add(il);
         }
 
-    }
-   public void EpidemicSpread()
-    {
-        Instantiate(epidemicsList[Random.Range(1, epidemicsList.Count)]);
-        Debug.Log("object instantiated");
+        object[] tempCitiesList = Resources.LoadAll("Cities", typeof(City.CitySO));
+
+        foreach (City.CitySO City in tempCitiesList)
+        {
+            City.CitySO cl = (City.CitySO)City;
+            CitySOsList.Add(cl);
+        }
     }
 
-    void GameOver()
+//Game Over   
+void GameOver()
     {
-
+        //if (citiesDead >= 2)
+        //{
+            
+        //}
     }
 
-    public void DayEnded()
-    {
-        days++;
-        txtDays.SetText(days.ToString());
-    }
 }
+
