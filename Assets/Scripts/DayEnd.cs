@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 public class DayEnd : MonoBehaviour
 {
-    public int days = 1;
+    public int days = 1, citiesDead=0;
     public TextMeshPro txtDays;
+    public TextMeshPro txtcitiesDead;
 
     public float fireSpreadChance = 0.5f; // 0 to 1 = 0% to 100%
+    public float virusSpreadChance = 0.5f; // 0 to 1 = 0% to 100%
 
     public void DayEnded()
     {
@@ -17,15 +19,15 @@ public class DayEnd : MonoBehaviour
         txtDays.SetText(days.ToString());
         //for each city in list
         spreadFire();
+        spreadVirus();
+
         // Abby fix
 
-        if (days > 9)
-        {
+        //if (days > 9)
+        //{
 
-
-        }
+        //}
     }
-
 
     public void spreadFire()
     {
@@ -38,8 +40,23 @@ public class DayEnd : MonoBehaviour
                 cityStatus.fireStatus++;
                 if (cityStatus.fireStatus >= 3) // max fire destroyed
                 {
+                    cityStatus.fireStatus = 3;
                     Button cityButton = city.GetComponent<Button>();
                     cityButton.interactable = false;
+
+                    citiesDead++;
+                    txtcitiesDead.SetText(citiesDead.ToString());
+
+                    if (days > 1)
+                    {
+                        //gameover();
+                        Debug.Log("gameOver");
+                    }
+                    else
+                    {
+                        Debug.Log("Still going");
+                    }
+
                 }
                 else //onfire but not destroyed
                 {
@@ -55,26 +72,21 @@ public class DayEnd : MonoBehaviour
                         if (neighbourStatus.fireStatus < 1) // Only spread if it's not already on fire
                         {
                             // Spread fire to this city
-                            neighbourCity.GetComponent<CityStatus>().fireStatus++;
+                            neighbourStatus.fireStatus++;
                             GameObject prefab = Instantiate(GameManager.Instance.prefab, neighbourCity);
-                            prefab.GetComponent<EpidemicPrefab>().epidemicType = EpidemicPrefab.EpidemicType.Fire;
+                            EpidemicPrefab epidemicPrefab = prefab.GetComponentInChildren<EpidemicPrefab>();
+                            epidemicPrefab.epidemicType = EpidemicPrefab.EpidemicType.Fire;
                             GameManager.Instance.prefab.GetComponentInChildren<TextMeshProUGUI>().text = GameManager.Instance.epidemicsList[0].Name;
 
                         }
-
-
-
                         // Debug.Log("C=" + neighbourIndex);
                         // Debug.Log("Epidemic spread");
                     }
                 }
-
-
-
             }
 
         }
-
+        #region Trash
         //For each neighbouring city
         // int cityIndex = -1;
         // int neighbourIndex = 0;
@@ -118,6 +130,67 @@ public class DayEnd : MonoBehaviour
             }
         }
         */
+        #endregion
+    }
+
+    public void spreadVirus()
+    {
+        foreach (Transform city in GameManager.Instance.citiesList)
+        {
+            CityStatus cityStatus = city.GetComponent<CityStatus>();
+
+            if (cityStatus.infectedStatus > 0) // Can spread infected
+            {
+                cityStatus.infectedStatus++;
+                if (cityStatus.infectedStatus >= 3) // max infected destroyed
+                {
+                    cityStatus.infectedStatus = 3;
+                    Button cityButton = city.GetComponent<Button>();
+                    cityButton.interactable = false;
+
+                    citiesDead++;
+                    txtcitiesDead.SetText(citiesDead.ToString());
+
+                    if (days > 1)
+                    {
+                        //gameover();
+                        Debug.Log("gameOver");
+                    }
+                    else
+                    {
+                        Debug.Log("Still going");
+                    }
+
+                }
+                else // is infected but not destroyed
+                {
+                    //city.GetComponentInChildren<>
+                    if (Random.value >= virusSpreadChance) // Chance that virus should virus should spread from this city
+                    {
+                        // Select random neighbour city
+                        CityNeighbours cityNeighbours = city.GetComponent<CityNeighbours>();
+                        int neighbourIndex = Random.Range(0, cityNeighbours.cityNeighbours.Count);
+                        Transform neighbourCity = cityNeighbours.cityNeighbours[neighbourIndex];
+
+                        CityStatus neighbourStatus = neighbourCity.GetComponent<CityStatus>();
+
+                        if (neighbourStatus.infectedStatus < 1) // Only spread if it's not already on infected
+                        {
+                            // Spread infected to this city
+                            neighbourStatus.infectedStatus++;
+                            GameObject prefab = Instantiate(GameManager.Instance.prefab, neighbourCity);
+                            
+                            EpidemicPrefab epidemicPrefab = prefab.GetComponentInChildren<EpidemicPrefab>();
+                            epidemicPrefab.epidemicType = EpidemicPrefab.EpidemicType.Virus;
+                            GameManager.Instance.prefab.GetComponentInChildren<TextMeshProUGUI>().text = GameManager.Instance.epidemicsList[1].Name;
+
+                        }
+                    }
+                }
+
+            }
+
+        }
     }
 }
 

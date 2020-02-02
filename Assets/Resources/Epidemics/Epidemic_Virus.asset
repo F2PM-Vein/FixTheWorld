@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Virus
   epidemicID: 2
-  epidemicIcon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  epidemicIcon: {fileID: 21300000, guid: a87e078ac4153e7428043e2db497c4b8, type: 3}
   Description: Virus
   eradicatedMessage: 'The Virus has been Eradicated '
   epidemicCategory: 2
+  epidemicProgress: 1
   Clip: event:/coughEvent

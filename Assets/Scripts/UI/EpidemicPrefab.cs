@@ -7,16 +7,17 @@ public class EpidemicPrefab : MonoBehaviour
 {
     public enum EpidemicType
     {
-        Fire, Virus
+        None, Fire, Virus
     }
 
-    public EpidemicType epidemicType;
+    public EpidemicType epidemicType = EpidemicType.None;
 
     private TextMeshProUGUI textMesh;
 
     // Start is called before the first frame update
     void Start()
     {
+        //textMesh = this.GetComponent<TextMeshProUGUI>();
         textMesh = this.GetComponent<TextMeshProUGUI>();
     }
 
