@@ -43,11 +43,13 @@ public class GameInitializer: MonoBehaviour
 
             if (GameManager.Instance.epidemicChoiceResult == 0)
             {
-                GameManager.Instance.citySOsList[start].onFire = true;
+                GameManager.Instance.citiesList[start].GetComponent<CityStatus>().onFire = true;
+                //GameManager.Instance.citySOsList[start].onFire = true;
             }
             else
             {
-                GameManager.Instance.citySOsList[start].Infected = true;
+                GameManager.Instance.citiesList[start].GetComponent<CityStatus>().isInfected = true;
+                //GameManager.Instance.citySOsList[start].Infected = true;
             }
 
 

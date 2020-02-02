@@ -47,13 +47,13 @@ public class GameManager : MonoBehaviour
             itemsList.Add(il);
         }
 
-        object[] tempCitiesList = Resources.LoadAll("Cities", typeof(City.CitySO));
+        //object[] tempCitiesList = Resources.LoadAll("Cities", typeof(City.CitySO));
 
-        foreach (City.CitySO City in tempCitiesList)
-        {
-            City.CitySO cl = (City.CitySO)City;
-            citySOsList.Add(cl);
-        }
+        //foreach (City.CitySO City in tempCitiesList)
+        //{
+        //    City.CitySO cl = (City.CitySO)City;
+        //    citySOsList.Add(cl);
+        //}
     }
 
     //Game Over   
