@@ -4,11 +4,14 @@ using UnityEngine;
 
 namespace City
 {
+    [SerializeField]
+    public enum State
+    {
+        ALIVE,DEAD
+    }
     [CreateAssetMenu(menuName = "ScriptableObjects/City SO", fileName = "City", order = 1)]
     public class CitySO : ScriptableObject
     {
-        [SerializeField]
-        public List<Transform> cityNeighbours = new List<Transform>();
         public bool onFire;
         public bool Infected;
         public int cityID;

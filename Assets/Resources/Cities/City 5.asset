@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 141250a8953027a4f93055c728e3c75e, type: 3}
-  m_Name: City 1
+  m_Name: City 5
   m_EditorClassIdentifier: 
   cityNeighbours:
-  - {fileID: 3853203753434294680, guid: 1723593296c8fac4699baec293723651, type: 3}
-  - {fileID: 2183330435727317750, guid: a805200f0b680f941b7d0e9d54cae846, type: 3}
-  - {fileID: 4661391589550161592, guid: 8531b86c6ed25f2448931da61f0486aa, type: 3}
+  - {fileID: 294334444701445720, guid: e56651e7b5561e34f8bf1dac22635d1e, type: 3}
+  - {fileID: 2183330435727317749, guid: a805200f0b680f941b7d0e9d54cae846, type: 3}
+  - {fileID: 4594747381621194049, guid: 476684d1625e28f48a3cbafc49c73016, type: 3}
   onFire: 0
   Infected: 0
   cityID: 0

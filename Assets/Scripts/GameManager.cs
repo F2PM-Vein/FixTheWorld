@@ -10,13 +10,13 @@ public class GameManager : MonoBehaviour
     public int days = 1;
     public TextMeshPro txtDays;
     public bool epidemicStarted = false;
-    public int epidemicSpreadResult;
-    public int citySpreadResult, numeberOfNeighboursResult, spreadResult;
+    public int epidemicSpreadResult, epidemicChoiceResult, citySpreadResult, numeberOfNeighboursResult, spreadResult;
     public GameObject prefab;
+    public string selected;
 
     public List<Item.ItemSO> itemsList = new List<Item.ItemSO>();
     public List<Epidemic.EpidemicSO> epidemicsList = new List<Epidemic.EpidemicSO>();
-    public List<City.CitySO> CitySOsList = new List<City.CitySO>();
+    public List<City.CitySO> citySOsList = new List<City.CitySO>();
     public List<Transform> citiesList = new List<Transform>();
 
     //Game Manager Instantiater
@@ -32,11 +32,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    //Adds SOs to lists dynamically
-    void Start()
-    {
         object[] tempEpidemicList = Resources.LoadAll("Epidemics", typeof(Epidemic.EpidemicSO));
 
         foreach (Epidemic.EpidemicSO Epidemic in tempEpidemicList)
@@ -44,7 +39,6 @@ public class GameManager : MonoBehaviour
             Epidemic.EpidemicSO ei = (Epidemic.EpidemicSO)Epidemic;
             epidemicsList.Add(ei);
         }
-
         object[] tempItemsList = Resources.LoadAll("Items", typeof(Item.ItemSO));
 
         foreach (Item.ItemSO Item in tempItemsList)
@@ -58,12 +52,12 @@ public class GameManager : MonoBehaviour
         foreach (City.CitySO City in tempCitiesList)
         {
             City.CitySO cl = (City.CitySO)City;
-            CitySOsList.Add(cl);
+            citySOsList.Add(cl);
         }
     }
 
-//Game Over   
-void GameOver()
+    //Game Over   
+    void GameOver()
     {
         //if (citiesDead >= 2)
         //{

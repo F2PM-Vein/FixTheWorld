@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class CitySpawner : MonoBehaviour
+using Epidemic;
+
+public class GameInitializer: MonoBehaviour
 {
-    // Start is called before the first frame update
+    #region Gamestart
     void Start()
     {
         //add txt to GM
@@ -26,16 +28,33 @@ public class CitySpawner : MonoBehaviour
                 }
             }
         }
+        #endregion Game 
+        #region The first Epidemic
 
-       //The first Epidemic
-      if (GameManager.Instance.epidemicStarted == false)
-            {
-            GameManager.Instance.epidemicSpreadResult = Random.Range(0,GameManager.Instance.epidemicsList.Count);
+        if (GameManager.Instance.epidemicStarted == false)
+        {
+
+            //chooses the epidemic to begin with
+        
             int start = Random.Range(0, GameManager.Instance.citiesList.Count);
             Instantiate(GameManager.Instance.prefab, GameManager.Instance.citiesList[start].transform);
-            GameManager.Instance.epidemicStarted = true;
+            GameManager.Instance.epidemicChoiceResult = Random.Range(0, GameManager.Instance.epidemicsList.Count);
+            GameManager.Instance.epidemicsList[GameManager.Instance.epidemicChoiceResult].epidemicProgress = Progress.HAPPENING;
 
+            if (GameManager.Instance.epidemicChoiceResult == 0)
+            {
+                GameManager.Instance.citySOsList[start].onFire = true;
+            }
+            else
+            {
+                GameManager.Instance.citySOsList[start].Infected = true;
             }
 
+
+            GameManager.Instance.epidemicStarted = true;
+   
         }
+        #endregion
+    }
 }
+
