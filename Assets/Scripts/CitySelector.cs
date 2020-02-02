@@ -24,13 +24,13 @@ public class CitySelector : MonoBehaviour
         switch (selectedItem)
         {
             case "Water":
-                if (cityStatus.onFire)
+                if (cityStatus.fireStatus>0)
                 {
                     //GetComponentInChildren<>
                 }
                 break;
             case "Medicine":
-                if (cityStatus.isInfected)
+                if (cityStatus.infectedStatus>0)
                 {
                     Debug.Log(GameManager.Instance.selected);
                 }

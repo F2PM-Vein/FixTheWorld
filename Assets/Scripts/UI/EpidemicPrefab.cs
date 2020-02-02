@@ -5,6 +5,13 @@ using TMPro;
 
 public class EpidemicPrefab : MonoBehaviour
 {
+    public enum EpidemicType
+    {
+        Fire, Virus
+    }
+
+    public EpidemicType epidemicType;
+
     private TextMeshProUGUI textMesh;
 
     // Start is called before the first frame update
@@ -17,7 +24,18 @@ public class EpidemicPrefab : MonoBehaviour
     void Update()
     {
         CityStatus cityStatus = this.transform.parent.parent.GetComponent<CityStatus>();
-        int fireStatus = cityStatus.fireStatus;
-        textMesh.text = fireStatus + "/3";
+
+        switch (epidemicType)
+        {
+            case EpidemicType.Fire:
+                textMesh.text = cityStatus.fireStatus + "/3";
+                break;
+            case EpidemicType.Virus:
+                textMesh.text = cityStatus.infectedStatus + "/3";
+                break;
+            default:
+                Debug.Log("Epidemic type not set");
+                break;
+        }
     }
 }

@@ -37,18 +37,30 @@ public class GameInitializer: MonoBehaviour
             //chooses the epidemic to begin with
         
             int start = Random.Range(0, GameManager.Instance.citiesList.Count);
-            Instantiate(GameManager.Instance.prefab, GameManager.Instance.citiesList[start].transform);
+        
             GameManager.Instance.epidemicChoiceResult = Random.Range(0, GameManager.Instance.epidemicsList.Count);
             GameManager.Instance.epidemicsList[GameManager.Instance.epidemicChoiceResult].epidemicProgress = Progress.HAPPENING;
 
-            if (GameManager.Instance.epidemicChoiceResult == 0)
+            CityStatus cityStatus = GameManager.Instance.citiesList[start].GetComponent<CityStatus>();
+
+            GameObject prefab = Instantiate(GameManager.Instance.prefab, GameManager.Instance.citiesList[start].transform);
+
+            if (GameManager.Instance.epidemicChoiceResult == 0) // fire
             {
-                GameManager.Instance.citiesList[start].GetComponent<CityStatus>().onFire = true;
+                cityStatus.fireStatus++;
+
+                prefab.GetComponent<EpidemicPrefab>().epidemicType = EpidemicPrefab.EpidemicType.Fire;
+                prefab.GetComponentInChildren<TextMeshProUGUI>().text = GameManager.Instance.epidemicsList[0].Name;
                 //GameManager.Instance.citySOsList[start].onFire = true;
             }
             else
             {
-                GameManager.Instance.citiesList[start].GetComponent<CityStatus>().isInfected = true;
+                // GameManager.Instance.citiesList[start].GetComponent<CityStatus>().isInfected = true;
+
+                cityStatus.infectedStatus++;
+                
+                prefab.GetComponent<EpidemicPrefab>().epidemicType = EpidemicPrefab.EpidemicType.Virus;
+                prefab.GetComponentInChildren<TextMeshProUGUI>().text = GameManager.Instance.epidemicsList[1].Name;
                 //GameManager.Instance.citySOsList[start].Infected = true;
             }
 

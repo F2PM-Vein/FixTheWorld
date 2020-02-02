@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 public class DayEnd : MonoBehaviour
 {
     public int days = 1;
@@ -14,35 +16,63 @@ public class DayEnd : MonoBehaviour
         days++;
         txtDays.SetText(days.ToString());
         //for each city in list
-        
+        spreadFire();
         // Abby fix
+
+        if (days > 9)
+        {
+
+
+        }
+    }
+
+
+    public void spreadFire()
+    {
         foreach (Transform city in GameManager.Instance.citiesList)
         {
             CityStatus cityStatus = city.GetComponent<CityStatus>();
 
-            if (cityStatus.onFire) // Can spread fire
+            if (cityStatus.fireStatus > 0) // Can spread fire
             {
-                //city.GetComponentInChildren<>
-                if (Random.value >= fireSpreadChance) // Chance that fire should fire should spread from this city
+                cityStatus.fireStatus++;
+                if (cityStatus.fireStatus >= 3) // max fire destroyed
                 {
-                    // Select random neighbour city
-                    CityNeighbours cityNeighbours = city.GetComponent<CityNeighbours>();
-                    int neighbourIndex = Random.Range(0, cityNeighbours.cityNeighbours.Count);
-                    Transform neighbourCity = cityNeighbours.cityNeighbours[neighbourIndex];
-
-                    CityStatus neighbourStatus = neighbourCity.GetComponent<CityStatus>();
-                    if (!neighbourStatus.onFire) // Only spread if it's not already on fire
-                    {
-                        // Spread fire to this city
-                        neighbourCity.GetComponent<CityStatus>().onFire = true;
-                        Instantiate(GameManager.Instance.prefab, neighbourCity);
-                        GameManager.Instance.prefab.GetComponentInChildren<TextMeshProUGUI>().text = GameManager.Instance.epidemicsList[0].Name;
-                    }
-
-                    // Debug.Log("C=" + neighbourIndex);
-                    // Debug.Log("Epidemic spread");
+                    Button cityButton = city.GetComponent<Button>();
+                    cityButton.interactable = false;
                 }
+                else //onfire but not destroyed
+                {
+                    //city.GetComponentInChildren<>
+                    if (Random.value >= fireSpreadChance) // Chance that fire should fire should spread from this city
+                    {
+                        // Select random neighbour city
+                        CityNeighbours cityNeighbours = city.GetComponent<CityNeighbours>();
+                        int neighbourIndex = Random.Range(0, cityNeighbours.cityNeighbours.Count);
+                        Transform neighbourCity = cityNeighbours.cityNeighbours[neighbourIndex];
+
+                        CityStatus neighbourStatus = neighbourCity.GetComponent<CityStatus>();
+                        if (neighbourStatus.fireStatus < 1) // Only spread if it's not already on fire
+                        {
+                            // Spread fire to this city
+                            neighbourCity.GetComponent<CityStatus>().fireStatus++;
+                            GameObject prefab = Instantiate(GameManager.Instance.prefab, neighbourCity);
+                            prefab.GetComponent<EpidemicPrefab>().epidemicType = EpidemicPrefab.EpidemicType.Fire;
+                            GameManager.Instance.prefab.GetComponentInChildren<TextMeshProUGUI>().text = GameManager.Instance.epidemicsList[0].Name;
+
+                        }
+
+
+
+                        // Debug.Log("C=" + neighbourIndex);
+                        // Debug.Log("Epidemic spread");
+                    }
+                }
+
+
+
             }
+
         }
 
         //For each neighbouring city
