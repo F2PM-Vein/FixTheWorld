@@ -147,7 +147,7 @@ public class DayEnd : MonoBehaviour
                     cityStatus.infectedStatus = 3;
                     Button cityButton = city.GetComponent<Button>();
                     cityButton.interactable = false;
-                    city.GetChild(city.childCount);
+                    //city.GetChild(city.childCount);
               
                     citiesDead++;
                     txtcitiesDead.SetText(citiesDead.ToString());
